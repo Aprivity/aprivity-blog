@@ -1,0 +1,39 @@
+﻿<svg width="1200" height="750" viewBox="0 0 1200 750" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="750" rx="36" fill="#050816"/>
+  <rect width="1200" height="750" rx="36" fill="url(#bg)"/>
+  <g opacity="0.72" filter="url(#blurA)">
+    <circle cx="264" cy="190" r="156" fill="#38BDF8"/>
+  </g>
+  <g opacity="0.66" filter="url(#blurB)">
+    <circle cx="938" cy="520" r="190" fill="#A855F7"/>
+  </g>
+  <rect x="76" y="76" width="1048" height="598" rx="28" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.18)"/>
+  <rect x="128" y="140" width="404" height="248" rx="22" fill="rgba(255,255,255,0.06)" stroke="rgba(125,211,252,0.24)"/>
+  <rect x="574" y="164" width="498" height="24" rx="12" fill="rgba(255,255,255,0.14)"/>
+  <rect x="574" y="220" width="420" height="18" rx="9" fill="rgba(255,255,255,0.1)"/>
+  <rect x="574" y="258" width="380" height="18" rx="9" fill="rgba(255,255,255,0.1)"/>
+  <rect x="574" y="296" width="336" height="18" rx="9" fill="rgba(255,255,255,0.1)"/>
+  <rect x="128" y="440" width="944" height="88" rx="20" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.14)"/>
+  <rect x="128" y="564" width="276" height="54" rx="27" fill="url(#button)"/>
+  <text x="128" y="118" fill="#BAE6FD" font-family="Arial, sans-serif" font-size="22" letter-spacing="6">AWWWARDS</text>
+  <text x="574" y="135" fill="white" font-family="Arial, sans-serif" font-size="64" font-weight="700">Collected Inspirations</text>
+  <text x="166" y="495" fill="white" font-family="Arial, sans-serif" font-size="38" font-weight="700">Prepared for live favorites data</text>
+  <text x="166" y="607" fill="white" font-family="Arial, sans-serif" font-size="24" font-weight="700">Mock preview</text>
+  <defs>
+    <linearGradient id="bg" x1="54" y1="38" x2="1100" y2="720" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#07122A"/>
+      <stop offset="0.52" stop-color="#101935"/>
+      <stop offset="1" stop-color="#160F2F"/>
+    </linearGradient>
+    <linearGradient id="button" x1="128" y1="564" x2="404" y2="618" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0EA5E9"/>
+      <stop offset="1" stop-color="#8B5CF6"/>
+    </linearGradient>
+    <filter id="blurA" x="-52" y="-126" width="632" height="632" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feGaussianBlur stdDeviation="80"/>
+    </filter>
+    <filter id="blurB" x="588" y="170" width="700" height="700" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feGaussianBlur stdDeviation="80"/>
+    </filter>
+  </defs>
+</svg>
