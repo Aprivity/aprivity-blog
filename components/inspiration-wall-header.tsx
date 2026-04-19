@@ -14,14 +14,14 @@ type InspirationWallHeaderProps = {
 
 const COPY = {
   badge: "Favorite Sources",
-  title: "Frontend Inspirations",
+  title: "Frontend Inspirations \u2728",
   subtitle:
-    "\u6c47\u96c6\u6211\u7684 Awwwards \u524d\u7aef\u7075\u611f\u4e0e GitHub \u516c\u5f00\u661f\u6807\u4ed3\u5e93\uff0c\u4f18\u5148\u6d4f\u89c8\u5185\u5bb9\u672c\u8eab\u3002",
+    "\u6c47\u96c6\u6211\u7684 Awwwards \u524d\u7aef\u7075\u611f\u4e0e GitHub \u516c\u5f00\u661f\u6807\u4ed3\u5e93\uff0c\u4f18\u5148\u6d4f\u89c8\u5185\u5bb9\u672c\u8eab\u3002 \ud83d\udccc",
   all: "All",
   awwwards: "Awwwards \u6536\u85cf",
   github: "GitHub \u6536\u85cf",
   reload: "\u91cd\u65b0\u52a0\u8f7d",
-  refreshing: "\u5237\u65b0\u4e2d",
+  refreshing: "\u5237\u65b0\u4e2d \ud83d\udd0d",
   countLabel: "\u6536\u85cf",
 };
 

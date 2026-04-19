@@ -5,7 +5,7 @@ import { useEffect, useRef, useState, type MouseEvent } from "react";
 import { useLanguage } from "@/components/language-provider";
 
 const githubLink = "https://github.com/Aprivity";
-const projectsLink = "#projects";
+const projectsLink = "/projects";
 const revealLifetime = 3000;
 const maxRevealPoints = 120;
 const minRevealDistance = 10;

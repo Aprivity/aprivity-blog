@@ -20,7 +20,7 @@ const navItems: NavItem[] = [
     href: "https://github.com/Aprivity",
     external: true,
   },
-  { key: "projects", href: "/#projects" },
+  { key: "projects", href: "/projects" },
   { key: "favorites", href: "/favorites" },
   { key: "contact", href: "/contact" },
 ];

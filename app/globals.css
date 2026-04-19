@@ -382,6 +382,11 @@ html[data-theme="light"] .contact-title,
 html[data-theme="light"] .favorites-section h1,
 html[data-theme="light"] .showcase-section h1,
 html[data-theme="light"] .inspiration-title,
+html[data-theme="light"] .projects-title,
+html[data-theme="light"] .project-card-title,
+html[data-theme="light"] .projects-state-title,
+html[data-theme="light"] .project-detail-title,
+html[data-theme="light"] .project-detail-stat p:last-child,
 html[data-theme="light"] .hero-card-shell p.text-white,
 html[data-theme="light"] .hero-avatar-shell p.text-white,
 html[data-theme="light"] .about-card-title,
@@ -414,13 +419,23 @@ html[data-theme="light"] .favorites-section .text-slate-400,
 html[data-theme="light"] .showcase-section .text-slate-300,
 html[data-theme="light"] .showcase-section .text-slate-400,
 html[data-theme="light"] .inspiration-wall-section .text-slate-300,
-html[data-theme="light"] .inspiration-wall-section .text-slate-400 {
+html[data-theme="light"] .inspiration-wall-section .text-slate-400,
+html[data-theme="light"] .projects-subtitle,
+html[data-theme="light"] .project-card-description,
+html[data-theme="light"] .projects-state-description,
+html[data-theme="light"] .project-detail-description,
+html[data-theme="light"] .project-detail-section .text-slate-300,
+html[data-theme="light"] .project-detail-section .text-slate-400,
+html[data-theme="light"] .projects-section .text-slate-300,
+html[data-theme="light"] .projects-section .text-slate-400 {
   color: var(--light-text);
 }
 
 html[data-theme="light"] .source-badge,
 html[data-theme="light"] .github-meta-pill,
-html[data-theme="light"] .github-topic-pill {
+html[data-theme="light"] .github-topic-pill,
+html[data-theme="light"] .project-meta-pill,
+html[data-theme="light"] .project-topic-pill {
   background: linear-gradient(180deg, rgba(255, 255, 255, 0.82), rgba(245, 249, 255, 0.72));
   border-color: var(--light-border);
   color: var(--light-text);
@@ -452,7 +467,14 @@ html[data-theme="light"] .showcase-loading-card,
 html[data-theme="light"] .inspiration-card,
 html[data-theme="light"] .inspiration-toolbar,
 html[data-theme="light"] .inspiration-state-card,
-html[data-theme="light"] .inspiration-loading-card {
+html[data-theme="light"] .inspiration-loading-card,
+html[data-theme="light"] .projects-header,
+html[data-theme="light"] .project-card,
+html[data-theme="light"] .projects-state-card,
+html[data-theme="light"] .projects-loading-card,
+html[data-theme="light"] .project-detail-panel,
+html[data-theme="light"] .project-detail-card,
+html[data-theme="light"] .project-detail-stat {
   background: linear-gradient(180deg, rgba(255, 255, 255, 0.82), rgba(244, 248, 255, 0.72));
   border-color: var(--light-border);
   box-shadow:
@@ -464,7 +486,8 @@ html[data-theme="light"] .about-card:hover,
 html[data-theme="light"] .favorites-card:hover,
 html[data-theme="light"] .contact-card:hover,
 html[data-theme="light"] .showcase-card:hover,
-html[data-theme="light"] .inspiration-card:hover {
+html[data-theme="light"] .inspiration-card:hover,
+html[data-theme="light"] .project-card:hover {
   border-color: rgba(96, 165, 250, 0.24);
   box-shadow:
     0 0 0 1px rgba(255, 255, 255, 0.52),
