@@ -47,6 +47,87 @@ body {
   background-color: #050816;
 }
 
+.app-background-image {
+  transition:
+    opacity 300ms ease-out,
+    transform 300ms ease-out,
+    filter 300ms ease-out;
+}
+
+.app-background-image-dark {
+  opacity: 0.92;
+}
+
+.app-background-image-light {
+  opacity: 0;
+}
+
+.app-background-dim {
+  background: rgba(2, 6, 23, 0.45);
+  transition: background-color 300ms ease-out;
+}
+
+.app-background-vignette {
+  background:
+    radial-gradient(circle at center, rgba(15, 23, 42, 0.08) 0%, rgba(2, 6, 23, 0.28) 48%, rgba(2, 6, 23, 0.6) 100%);
+  transition: background 300ms ease-out;
+}
+
+.app-background-wash {
+  background:
+    linear-gradient(180deg, rgba(2, 6, 23, 0.08) 0%, rgba(2, 6, 23, 0.18) 45%, rgba(2, 6, 23, 0.3) 100%);
+  transition: background 300ms ease-out;
+}
+
+.app-background-glow {
+  background:
+    radial-gradient(circle at center, rgba(96, 165, 250, 0.05), transparent 34%);
+  transition: background 300ms ease-out;
+}
+
+.app-background-spot {
+  opacity: 0.88;
+  transition:
+    opacity 300ms ease-out,
+    background-color 300ms ease-out,
+    filter 300ms ease-out;
+}
+
+.ripple-node {
+  position: absolute;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.26);
+  background:
+    radial-gradient(circle, rgba(255, 255, 255, 0.22) 0%, rgba(147, 197, 253, 0.12) 35%, rgba(96, 165, 250, 0.06) 48%, transparent 72%);
+  mix-blend-mode: screen;
+  box-shadow:
+    0 0 24px rgba(191, 219, 254, 0.16),
+    inset 0 0 24px rgba(255, 255, 255, 0.08);
+  filter: blur(1px);
+  will-change: transform, opacity, filter;
+}
+
+.ripple-core,
+.ripple-highlight {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+}
+
+.ripple-core {
+  border: 1px solid rgba(191, 219, 254, 0.28);
+  box-shadow:
+    inset 0 0 18px rgba(255, 255, 255, 0.08),
+    0 0 30px rgba(125, 211, 252, 0.14);
+}
+
+.ripple-highlight {
+  inset: 18%;
+  background:
+    radial-gradient(circle, rgba(255, 255, 255, 0.2) 0%, rgba(191, 219, 254, 0.1) 36%, rgba(167, 139, 250, 0.08) 56%, transparent 72%);
+  opacity: 0.9;
+}
+
 * {
   border-color: rgba(148, 163, 184, 0.14);
 }
@@ -220,6 +301,118 @@ body {
     box-shadow 300ms ease-out,
     fill 300ms ease-out,
     stroke 300ms ease-out;
+}
+
+html[data-theme="dark"] .site-navbar,
+html[data-theme="dark"] .about-panel,
+html[data-theme="dark"] .about-card,
+html[data-theme="dark"] .favorites-panel,
+html[data-theme="dark"] .favorites-card,
+html[data-theme="dark"] .contact-card,
+html[data-theme="dark"] .showcase-card,
+html[data-theme="dark"] .showcase-state-card,
+html[data-theme="dark"] .showcase-loading-card,
+html[data-theme="dark"] .inspiration-card,
+html[data-theme="dark"] .inspiration-toolbar,
+html[data-theme="dark"] .inspiration-state-card,
+html[data-theme="dark"] .inspiration-loading-card,
+html[data-theme="dark"] .projects-header,
+html[data-theme="dark"] .project-card,
+html[data-theme="dark"] .projects-state-card,
+html[data-theme="dark"] .projects-loading-card,
+html[data-theme="dark"] .project-detail-panel,
+html[data-theme="dark"] .project-detail-card,
+html[data-theme="dark"] .project-detail-stat {
+  background:
+    linear-gradient(180deg, rgba(15, 23, 42, 0.62), rgba(15, 23, 42, 0.42));
+  border-color: rgba(255, 255, 255, 0.1);
+  box-shadow:
+    0 18px 44px rgba(0, 0, 0, 0.2),
+    0 12px 34px rgba(2, 6, 23, 0.3);
+}
+
+html[data-theme="dark"] .about-card:hover,
+html[data-theme="dark"] .favorites-card:hover,
+html[data-theme="dark"] .contact-card:hover,
+html[data-theme="dark"] .showcase-card:hover,
+html[data-theme="dark"] .inspiration-card:hover,
+html[data-theme="dark"] .project-card:hover {
+  background:
+    linear-gradient(180deg, rgba(30, 41, 59, 0.66), rgba(15, 23, 42, 0.5));
+  border-color: rgba(255, 255, 255, 0.2);
+  box-shadow:
+    0 22px 56px rgba(0, 0, 0, 0.24),
+    0 18px 42px rgba(37, 99, 235, 0.16);
+}
+
+html[data-theme="light"] .app-background-image {
+  opacity: 0;
+}
+
+html[data-theme="light"] .app-background-image-light {
+  opacity: 0.96;
+}
+
+html[data-theme="light"] .app-background-image-dark {
+  opacity: 0;
+}
+
+html[data-theme="light"] .app-background-dim {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+html[data-theme="light"] .app-background-vignette {
+  background:
+    radial-gradient(circle at 48% 34%, rgba(255, 255, 255, 0.34) 0%, rgba(255, 255, 255, 0.14) 34%, rgba(226, 232, 240, 0.2) 62%, rgba(203, 213, 225, 0.38) 100%);
+}
+
+html[data-theme="light"] .app-background-wash {
+  background:
+    linear-gradient(180deg, rgba(248, 250, 252, 0.08) 0%, rgba(241, 245, 249, 0.14) 52%, rgba(226, 232, 240, 0.22) 100%);
+}
+
+html[data-theme="light"] .app-background-glow {
+  background:
+    radial-gradient(circle at 45% 35%, rgba(255, 255, 255, 0.36), transparent 42%),
+    radial-gradient(circle at 80% 20%, rgba(147, 197, 253, 0.18), transparent 38%);
+}
+
+html[data-theme="light"] .app-background-spot {
+  opacity: 0.46;
+}
+
+html[data-theme="light"] .app-background-spot-blue {
+  background-color: rgba(96, 165, 250, 0.12);
+}
+
+html[data-theme="light"] .app-background-spot-violet {
+  background-color: rgba(167, 139, 250, 0.1);
+}
+
+html[data-theme="light"] .app-background-spot-cyan {
+  background-color: rgba(34, 211, 238, 0.08);
+}
+
+html[data-theme="light"] .ripple-node {
+  border-color: rgba(255, 255, 255, 0.22);
+  background:
+    radial-gradient(circle, rgba(255, 255, 255, 0.24) 0%, rgba(191, 219, 254, 0.12) 36%, rgba(167, 139, 250, 0.08) 52%, transparent 72%);
+  box-shadow:
+    0 0 20px rgba(148, 163, 184, 0.12),
+    inset 0 0 20px rgba(255, 255, 255, 0.12);
+}
+
+html[data-theme="light"] .ripple-core {
+  border-color: rgba(255, 255, 255, 0.28);
+  box-shadow:
+    inset 0 0 14px rgba(255, 255, 255, 0.12),
+    0 0 24px rgba(147, 197, 253, 0.14);
+}
+
+html[data-theme="light"] .ripple-highlight {
+  background:
+    radial-gradient(circle, rgba(255, 255, 255, 0.26) 0%, rgba(191, 219, 254, 0.12) 40%, rgba(196, 181, 253, 0.08) 58%, transparent 74%);
+  opacity: 0.74;
 }
 
 html[data-theme="light"] body {
@@ -624,13 +817,34 @@ html[data-theme="light"] .hero-section .floating-orb-delayed {
   }
 }
 
+@keyframes background-ripple {
+  0% {
+    transform: translate(-50%, -50%) scale(0.22);
+    opacity: 0.58;
+    filter: blur(0px);
+  }
+  45% {
+    opacity: 0.34;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1.8);
+    opacity: 0;
+    filter: blur(2px);
+  }
+}
+
+.animate-background-ripple {
+  animation: background-ripple 1.45s ease-out forwards;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .energy-ring,
   .energy-ring-delayed,
   .floating-orb,
   .floating-orb-delayed,
   .animate-fade-up,
-  .animate-fade-up-delayed {
+  .animate-fade-up-delayed,
+  .animate-background-ripple {
     animation: none;
   }
 

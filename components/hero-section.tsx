@@ -331,7 +331,7 @@ export function HeroSection() {
   return (
     <section
       id="home"
-      className="hero-section relative flex min-h-[calc(100vh-96px)] items-center py-16 md:py-20"
+      className="hero-section relative z-10 flex min-h-[calc(100vh-96px)] items-center py-16 md:py-20"
     >
       <div className="absolute inset-0 -z-10 overflow-hidden">
         <div className="section-ambient-sky absolute left-[-8%] top-[10%] h-72 w-72 rounded-full bg-sky-500/16 blur-[120px]" />
