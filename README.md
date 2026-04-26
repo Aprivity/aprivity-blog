@@ -1,272 +1,220 @@
-﻿# Aprivity_ Portfolio
+# Aprivity_ Personal Portfolio
 
-Aprivity_ Portfolio 是一个基于 Next.js App Router 构建的个人主页与收藏展示站点。项目用于展示个人介绍、联系入口，以及一个以 Awwwards 灵感收藏和 GitHub Starred Repositories 为数据来源的收藏墙。
+一个基于 **Next.js** 构建的个人主页 / 博客入口 / 作品展示网站。
+它是 Aprivity_ 的个人品牌主页，也是一个用于沉淀项目、灵感和收藏的数字空间。
 
-整体视觉风格偏深色蓝紫渐变、科技感、现代作品集风格，并支持浅色模式与中英文切换。
+## 项目简介
 
-## 功能特性
+Aprivity_ Personal Portfolio 用来展示个人介绍、项目作品、博客入口、GitHub 收藏、Awwwards 设计灵感收藏等内容。它不只是一个静态主页，而是一个带有交互动画、主题切换、收藏聚合和视觉实验的个人网站。
 
-- 个人作品集首页
-  - 现代化 Hero 区域
-  - 个人头像展示
-  - 项目与成长方向简介
-  - 联系入口
-
-- 收藏展示页
-  - 纯展示型收藏墙布局
-  - 支持 `All`、`Awwwards 收藏`、`GitHub 收藏` 三类筛选
-  - Awwwards 收藏使用偏视觉型图片卡片
-  - GitHub 收藏使用仓库信息型卡片
-  - 支持 loading skeleton、空状态、错误状态、局部来源失败提示
-  - 支持本地缓存，接口短时间失败时可优先展示上次成功结果
-
-- 双来源收藏数据
-  - Awwwards 收藏来源：`https://www.awwwards.com/Aprivity/collections/myfav/`
-  - GitHub 收藏来源：`Aprivity` 用户公开 starred repositories
-  - `/api/favorites` 聚合两类收藏，并输出统一数据结构
-
-- 主题与语言
-  - 深色 / 浅色模式切换
-  - 中文 / 英文文案切换
-  - 首屏通过 boot script 减少主题闪烁
+网站整体以暗色科技感为主，使用柔和的蓝紫渐变、光晕、玻璃拟态卡片和细腻的悬浮反馈，营造轻盈但有记忆点的个人主页体验。同时，它也支持白天模式，在奶油白和浅色渐变背景下保持统一的视觉语言。
 
 ## 技术栈
 
-- Next.js 15
-- React 19
-- TypeScript
-- Tailwind CSS 4
-- Cheerio
-- Next.js App Router
+- **Next.js 15**：基于 App Router 的页面与 API 路由结构
+- **React 19**：组件化 UI 构建
+- **TypeScript**：类型约束与更稳定的开发体验
+- **Tailwind CSS 4**：快速构建响应式界面与主题样式
+- **CSS Animation / Canvas**：页面动效、悬浮反馈、鼠标揭示与水波纹交互
+- **GitHub API**：获取 GitHub 收藏 / Star 项目数据
+- **Awwwards 数据获取接口**：聚合网页设计灵感收藏
+- **Cheerio**：用于解析和整理 Awwwards 页面数据
+- **PM2 / 宝塔面板**：用于服务器端 Node.js 服务管理与部署
 
-## 快速开始
+## 核心特点
 
-### 1. 安装依赖
+### 深色科技感视觉风格
+
+项目默认偏向暗色模式，使用蓝紫渐变背景、柔和光晕、玻璃拟态卡片和现代化 Hero Section，整体视觉更接近个人品牌主页与创意作品集的结合。
+
+### 白天 / 黑夜主题切换
+
+网站支持浅色与深色主题切换：
+
+- 白天模式使用奶油白、柔和浅蓝、浅紫色背景
+- 夜间模式使用深色蓝紫科技风
+- 主题切换后，导航、卡片、按钮、文字、光效都会保持统一的视觉层次
+
+主题偏好会保存在本地，用户下次访问时会延续之前的选择。
+
+### Hero Section
+
+首页 Hero 区域是站点的第一视觉焦点：
+
+- 左侧展示个人介绍、个人标识和状态信息
+- 右侧展示头像与装饰卡片
+- 包含“查看项目”“查看博客 / GitHub”等入口按钮
+- 支持悬浮动画、渐变按钮、光效反馈和响应式布局
+
+### 阴影擦除 / 鼠标揭示效果
+
+Hero 右侧视觉卡片包含一个比较有特色的鼠标揭示交互：
+
+- 初始状态下，内容被一层动态阴影或遮罩覆盖
+- 鼠标移动经过时，会像橡皮擦一样擦除遮罩，露出隐藏内容
+- 鼠标轨迹形成局部聚光和动态揭示效果
+- 鼠标经过后的可视区域会短暂停留，再缓慢恢复遮罩
+
+这个效果通过 Canvas 绘制遮罩轨迹实现，是项目里比较有辨识度的视觉亮点。
+
+### 鼠标水波 / 涟漪交互效果
+
+页面背景支持轻量的透明水波纹效果：
+
+- 鼠标移动时产生类似水面扰动的涟漪
+- 涟漪效果轻盈、透明，不会抢占正文内容
+- 支持 `prefers-reduced-motion`，在用户减少动画偏好下会降低动态效果
+
+### GitHub 收藏展示
+
+项目内置 GitHub 收藏展示能力：
+
+- 通过接口获取 GitHub Star / 收藏项目
+- 将优秀项目以卡片形式展示
+- 支持沉淀技术参考、开源项目和个人灵感来源
+
+### Awwwards 收藏展示
+
+除了代码项目，网站也保留了设计灵感收藏区：
+
+- 展示来自 Awwwards 的网页设计灵感
+- 可与 GitHub 收藏分区展示
+- 形成个人长期维护的灵感库
+
+### 响应式布局
+
+项目适配桌面端、平板和移动端。页面结构会根据屏幕尺寸调整内容层次、卡片布局和间距，让个人介绍、项目卡片与收藏内容在不同设备上都保持清晰和美观。
+
+## 项目目录结构
+
+```bash
+.
+├── app/
+│   ├── api/
+│   │   ├── awwwards-favorites/
+│   │   ├── favorites/
+│   │   └── github-favorites/
+│   ├── contact/
+│   ├── favorites/
+│   │   └── showcase/
+│   ├── projects/
+│   │   └── [repo]/
+│   ├── globals.css
+│   ├── layout.tsx
+│   └── page.tsx
+├── components/
+│   ├── hero-section.tsx
+│   ├── ripple-background.tsx
+│   ├── theme-toggle.tsx
+│   ├── github-favorite-card.tsx
+│   ├── awwwards-favorites-card.tsx
+│   └── ...
+├── lib/
+│   ├── github.ts
+│   ├── github-favorites.ts
+│   ├── awwwards-favorites.ts
+│   ├── favorites-aggregator.ts
+│   └── scrape-awwwards.ts
+├── public/
+│   ├── avatar.jpg
+│   ├── awwwards-favorites-cover.svg
+│   └── images/
+├── next.config.ts
+├── package.json
+├── postcss.config.mjs
+└── tsconfig.json
+```
+
+## 本地运行
+
+安装依赖：
 
 ```bash
 npm install
 ```
 
-### 2. 启动开发服务
+启动开发环境：
 
 ```bash
 npm run dev
 ```
 
-默认访问：
+默认访问地址：
 
 ```text
 http://localhost:3000
 ```
 
-### 3. 构建生产版本
+## 构建与生产运行
+
+构建生产版本：
 
 ```bash
 npm run build
 ```
 
-### 4. 启动生产服务
+启动生产服务：
 
 ```bash
 npm run start
 ```
 
-## 项目结构
+## PM2 部署说明
 
-```text
-.
-├── app
-│   ├── api
-│   │   ├── awwwards-favorites
-│   │   ├── favorites
-│   │   └── github-favorites
-│   ├── contact
-│   ├── favorites
-│   ├── globals.css
-│   ├── layout.tsx
-│   └── page.tsx
-├── components
-│   ├── hero-section.tsx
-│   ├── navbar.tsx
-│   ├── inspiration-wall-section.tsx
-│   ├── inspiration-wall-header.tsx
-│   ├── inspiration-grid.tsx
-│   ├── inspiration-card.tsx
-│   ├── github-favorite-card.tsx
-│   ├── source-badge.tsx
-│   ├── theme-toggle.tsx
-│   └── language-toggle.tsx
-├── lib
-│   ├── awwwards-favorites.ts
-│   ├── scrape-awwwards.ts
-│   ├── github-favorites.ts
-│   ├── favorites-aggregator.ts
-│   ├── favorite-mappers.ts
-│   ├── favorite-types.ts
-│   └── messages.ts
-├── public
-│   ├── avatar.jpg
-│   └── awwwards-favorites-cover.svg
-├── next.config.ts
-├── package.json
-└── tsconfig.json
-```
+项目已部署在服务器环境中，并通过 PM2 管理，服务名为 `aprivity`。
 
-## API 说明
-
-### `/api/awwwards-favorites`
-
-拉取并解析 Awwwards 收藏页内容。
-
-特点：
-
-- 使用 Cheerio 解析页面 HTML
-- 带服务端缓存
-- 支持超时和重试
-- 失败时可回退到最近一次成功缓存
-
-### `/api/github-favorites`
-
-读取 GitHub 用户 `Aprivity` 的公开 starred repositories。
-
-特点：
-
-- 不使用 OAuth
-- 只读取公开可访问的 starred repositories
-- 支持分页拉取和数量限制
-- 带服务端缓存
-- GitHub 请求失败时不会导致站点崩溃
-
-### `/api/favorites`
-
-聚合 Awwwards 和 GitHub 两类收藏，返回统一结构。
-
-返回结构包含：
-
-```ts
-{
-  all: UnifiedFavoriteItem[];
-  groups: {
-    awwwards: UnifiedFavoriteItem[];
-    github: UnifiedFavoriteItem[];
-  };
-  counts: {
-    awwwards: number;
-    github: number;
-    total: number;
-  };
-  sources: {
-    awwwards: FavoriteSourceState;
-    github: FavoriteSourceState;
-  };
-  updatedAt: string;
-}
-```
-
-某一来源失败时，另一来源仍会正常返回，前端会展示局部来源提示。
-
-## 统一收藏数据结构
-
-收藏墙前端主要消费统一结构：
-
-```ts
-type UnifiedFavoriteItem = {
-  id: string;
-  source: "awwwards" | "github";
-  title: string;
-  description: string;
-  href: string;
-  image?: string;
-  tags: string[];
-  meta: {
-    sourceLabel: string;
-    domain?: string;
-    owner?: string;
-    repo?: string;
-    language?: string;
-    homepage?: string;
-  };
-  stats?: {
-    stars?: number;
-    forks?: number;
-  };
-  createdAt?: string;
-  updatedAt?: string;
-};
-```
-
-## 收藏页设计
-
-收藏页入口：
-
-```text
-/favorites
-```
-
-页面结构：
-
-- 顶部轻量标题区
-- 来源数量统计
-- `All / Awwwards 收藏 / GitHub 收藏` 筛选
-- 响应式收藏网格
-- 底部低调说明与外部链接
-
-布局策略：
-
-- Awwwards 视图更偏图片画廊，可在大屏展示更多列
-- GitHub 视图更偏文字信息卡，桌面端保持 3 列，避免信息过挤
-- All 视图采用更舒展的 3 列策略，兼顾两类卡片
-
-## 缓存说明
-
-服务端缓存文件会写入项目根目录下的 `.cache` 文件夹，例如：
-
-```text
-.cache/awwwards-favorites.json
-.cache/github-favorites.json
-```
-
-这些缓存用于在外部接口短时间失败时提供兜底数据。
-
-## 可用脚本
+常用命令：
 
 ```bash
-npm run dev
+pm2 list
+pm2 restart aprivity
+pm2 logs aprivity
+pm2 save
 ```
 
-启动开发服务器。
+命令说明：
+
+- `pm2 list`：查看当前 PM2 管理的服务列表
+- `pm2 restart aprivity`：重启 Aprivity_ 网站服务
+- `pm2 logs aprivity`：查看服务运行日志
+- `pm2 save`：保存当前 PM2 进程配置，便于服务器重启后恢复
+
+如果使用宝塔面板部署，可以在 Node 项目或终端中配合 PM2 管理服务，并将反向代理指向 Next.js 服务端口。
+
+## 环境变量
+
+环境变量为可选配置，具体取决于是否需要访问 GitHub API、站点 URL 或外部数据接口。请不要将真实密钥提交到仓库中。
+
+可以在项目根目录创建 `.env.local`：
 
 ```bash
-npm run build
+GITHUB_TOKEN=your_github_token
+NEXT_PUBLIC_SITE_URL=https://aprivity.xyz
 ```
 
-构建生产版本，并进行类型检查。
+可选说明：
+
+- `GITHUB_TOKEN`：用于提高 GitHub API 请求额度，获取收藏项目或仓库信息时更稳定
+- `NEXT_PUBLIC_SITE_URL`：站点线上地址，可用于 SEO、分享链接或接口拼接
+
+## Roadmap
+
+- 优化博客内容系统，完善文章列表、详情页与内容管理方式
+- 增强项目展示页面，补充项目截图、技术标签和更完整的项目说明
+- 优化 GitHub 收藏分类，让收藏项目更容易按技术方向筛选
+- 增强 Awwwards 收藏缓存机制，减少重复请求并提升加载速度
+- 优化鼠标交互动画性能，在低性能设备上保持流畅
+- 增加更多个性化动画效果，让页面更有 Aprivity_ 的个人识别度
+
+## 开发脚本
 
 ```bash
-npm run start
+npm run dev      # 启动开发服务器
+npm run build    # 构建生产版本
+npm run start    # 启动生产服务
+npm run lint     # 运行 lint 检查
 ```
 
-启动生产服务器。
+## 关于 Aprivity_
 
-```bash
-npm run lint
-```
-
-运行 lint 脚本。注意：当前项目使用 Next.js 15，若本地 Next lint 命令不可用，可按实际需求补充 ESLint 配置。
-
-## 部署建议
-
-推荐部署到支持 Next.js App Router 的平台，例如 Vercel。
-
-部署时无需配置 GitHub OAuth，因为当前 GitHub 收藏只读取公开 starred repositories。
-
-## 维护建议
-
-- 如果 Awwwards 页面结构变化，优先检查 `lib/scrape-awwwards.ts`
-- 如果需要调整 GitHub 收藏数量，检查 `lib/github-favorites.ts`
-- 如果需要新增收藏来源，建议在 `lib/favorite-types.ts` 扩展统一类型，并在 `lib/favorite-mappers.ts` 中新增 mapper
-- 如果需要调整收藏墙视觉，优先修改 `components/inspiration-*` 相关组件
-
-## License
-
-This project is private and currently has no public license.
+Aprivity_ Personal Portfolio 是一个持续演进的个人网站项目。它既是作品集，也是博客入口和灵感收藏库；既用于展示已经完成的内容，也用于记录新的想法、实验和正在生长的作品。
