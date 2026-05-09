@@ -197,6 +197,12 @@ NEXT_PUBLIC_SITE_URL=https://aprivity.xyz
 - `GITHUB_TOKEN`：用于提高 GitHub API 请求额度，获取收藏项目或仓库信息时更稳定
 - `NEXT_PUBLIC_SITE_URL`：站点线上地址，可用于 SEO、分享链接或接口拼接
 
+## 更新说明
+
+- 首页“关于我”预览区域已替换为“本站资讯”模块，用于展示文章数、运行时间、字数、访客数、访问量和最后更新时间。
+- 新增站点技术栈与部署 Badge 信息栏，展示 Next.js、Tailwind CSS、TypeScript、RackNerd VPS、PM2 + Nginx、GitHub 和版权协议等信息。
+- 优化“本站资讯”模块在浅色和深色模式下的可读性，并压缩 Badge 区域视觉权重，使其更像轻量技术标签栏。
+
 ## Roadmap
 
 - 优化博客内容系统，完善文章列表、详情页与内容管理方式

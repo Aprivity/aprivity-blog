@@ -64,6 +64,28 @@
         },
       ],
     },
+    siteInfo: {
+      title: "本站资讯",
+      description:
+        "这里记录本站的运行状态、内容积累与技术构成。网站会随着我的学习、项目实践和博客输出持续更新。",
+      stats: [
+        { label: "文章数目", value: "2" },
+        { label: "已运行时间", value: "26 天" },
+        { label: "本站总字数", value: "813" },
+        { label: "本站访客数", value: "590" },
+        { label: "本站总访问量", value: "1405" },
+        { label: "最后更新时间", value: "19 小时前" },
+      ],
+      badges: [
+        { label: "Framework", value: "Next.js" },
+        { label: "Styling", value: "Tailwind CSS" },
+        { label: "Language", value: "TypeScript" },
+        { label: "Hosted", value: "RackNerd VPS" },
+        { label: "Runtime", value: "PM2 + Nginx" },
+        { label: "Source", value: "GitHub", href: "https://github.com/Aprivity" },
+        { label: "Copyright", value: "BY-NC-SA 4.0" },
+      ],
+    } satisfies SiteInfo,
     favorites: {
       badge: "GitHub Stars",
       title: "我的收藏 📚",
@@ -198,6 +220,28 @@
         },
       ],
     },
+    siteInfo: {
+      title: "Site Info",
+      description:
+        "This section records the site's running status, content growth, and technical stack. It will continue to evolve with my projects, notes, and development practice.",
+      stats: [
+        { label: "Articles", value: "2" },
+        { label: "Running Time", value: "26 days" },
+        { label: "Total Words", value: "813" },
+        { label: "Visitors", value: "590" },
+        { label: "Page Views", value: "1405" },
+        { label: "Last Updated", value: "19 hours ago" },
+      ],
+      badges: [
+        { label: "Framework", value: "Next.js" },
+        { label: "Styling", value: "Tailwind CSS" },
+        { label: "Language", value: "TypeScript" },
+        { label: "Hosted", value: "RackNerd VPS" },
+        { label: "Runtime", value: "PM2 + Nginx" },
+        { label: "Source", value: "GitHub", href: "https://github.com/Aprivity" },
+        { label: "Copyright", value: "BY-NC-SA 4.0" },
+      ],
+    } satisfies SiteInfo,
     favorites: {
       badge: "GitHub Stars",
       title: "Favorites",
@@ -271,3 +315,20 @@
 
 export type Language = keyof typeof messages;
 export type Messages = (typeof messages)[Language];
+export type SiteStat = {
+  label: string;
+  value: string;
+};
+
+export type TechBadge = {
+  label: string;
+  value: string;
+  href?: string;
+};
+
+export type SiteInfo = {
+  title: string;
+  description: string;
+  stats: SiteStat[];
+  badges: TechBadge[];
+};
