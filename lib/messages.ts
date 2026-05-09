@@ -2,7 +2,7 @@
   zh: {
     nav: {
       home: "首页",
-      about: "关于",
+      about: "关于我",
       blog: "博客",
       projects: "项目",
       favorites: "我的收藏",

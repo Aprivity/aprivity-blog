@@ -14,7 +14,7 @@ type NavItem = {
 
 const navItems: NavItem[] = [
   { key: "home", href: "/#home" },
-  { key: "about", href: "/#about" },
+  { key: "about", href: "/about" },
   {
     key: "blog",
     href: "https://github.com/Aprivity",
